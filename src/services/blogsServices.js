@@ -12,10 +12,10 @@ export const getBlog = (blogId) => {
     return axios.get(url);
 };
 
-export const getAllUsres = () => {
-    const url= `${SERVER_URL}/users`;
-    return axios.get(url);
+export const getAllUsers = () => {
+  return axios.get('https://jsonplaceholder.typicode.com/users');
 };
+
 
 export const getUser = (userId) => {
     const url = `${SERVER_URL}/users/${userId}`;

@@ -44,11 +44,11 @@ const blogSlice = createSlice({
       },
     },
     blogUpdated: (state, action) => {
-      const { id, title, content } = action.payload;
+      const { id, title, body } = action.payload;
       const existingBlog = state.find((blog) => blog.id === id);
       if (existingBlog) {
         existingBlog.title = title;
-        existingBlog.body = content;
+        existingBlog.body = body;
       }
     },
     blogDeleted: (state, action) => {

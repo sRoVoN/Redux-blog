@@ -33,6 +33,15 @@ const EditBlogForm = () => {
       navigate(`/blogs/${blogId}`);
     }
   };
+  if (!blog) {
+  return (
+    <section>
+      <h2>Sorry, there is no post in this address 🫣 </h2>
+      <Link to="/">Back to home</Link>
+    </section>
+  );
+}
+
 
   return (
     <section>

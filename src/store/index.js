@@ -4,6 +4,7 @@ import usersReducer, { fetchUsers } from "../reducers/userSlice";
 import { loadState, saveState } from '../utils/localStorage';
 
 const persistedState = loadState();
+
 export const store = configureStore({
     reducer: {
         blogs: blogReducer,
@@ -11,7 +12,10 @@ export const store = configureStore({
     },
     preloadedState: persistedState
 });
-store.dispatch(fetchUsers());
+
+if (!persistedState?.users?.length) {
+  store.dispatch(fetchUsers());
+}
 
 store.subscribe(() => {
   saveState({
