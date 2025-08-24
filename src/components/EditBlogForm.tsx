@@ -22,25 +22,18 @@ const EditBlogForm = () => {
     return (
       <section>
         <h2>Sorry, there is no post in this address 🫣 </h2>
+        <Link to="/">Back to home</Link>
       </section>
     );
   }
 
-  const handleSubmitForm = (e) => {
-    e.preventDefault();
-    if (title && body) {
-      dispatch(blogUpdated({ id: blogId, title, body }));
-      navigate(`/blogs/${blogId}`);
-    }
-  };
-  if (!blog) {
-  return (
-    <section>
-      <h2>Sorry, there is no post in this address 🫣 </h2>
-      <Link to="/">Back to home</Link>
-    </section>
-  );
-}
+const handleSubmitForm = (e) => {
+  e.preventDefault();
+  if (title && body) {
+    dispatch(blogUpdated({ id: blogId, title, body }));
+    navigate(`/blogs/${blogId}`);
+  }
+};
 
 
   return (

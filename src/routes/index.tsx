@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import MainLayout from '../layouts/MainLayout.jsx';
-import App from '../App.jsx';
-import SingleBlogPage from "../components/SingleBlogPage.jsx";
-import CreateBlogForm from "../components/CreateBlogForm.jsx";
-import EditBlogForm from "../components/EditBlogForm.jsx";
+import MainLayout from '../layouts/MainLayout';
+import App from '../App';
+import SingleBlogPage from "../components/SingleBlogPage";
+import CreateBlogForm from "../components/CreateBlogForm";
+import EditBlogForm from "../components/EditBlogForm";
 
 export const router = createBrowserRouter([
     {

@@ -2,8 +2,8 @@ import axios from "axios";
 
 const SERVER_URL = "https://jsonplaceholder.typicode.com";
 
-export const getAllBlogs = () => {
-    const url= `${SERVER_URL}/posts`;
+export const getAllBlogs = (limit = 40) => {
+    const url= `${SERVER_URL}/posts?_limit=${limit}`;
     return axios.get(url);
 };
 
