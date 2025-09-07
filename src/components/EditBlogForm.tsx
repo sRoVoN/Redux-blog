@@ -1,15 +1,19 @@
 import { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate, useParams, Link } from "react-router-dom";
-import { blogUpdated, selectBlogById } from "../reducers/blogSlice";
+import { blogUpdated,  selectBlogById } from "../reducers/blogSlice";
+import { useAppSelector } from "../hooks";
 
 const EditBlogForm = () => {
-  const { blogId } = useParams();
-  const blog = useSelector((state) => selectBlogById(state, blogId));
+  const { blogId } = useParams<{ blogId: string }>();
+  const blog = useAppSelector((state) =>
+  blogId ? selectBlogById(state, blogId) : undefined
+);
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
 
   useEffect(() => {
     if (blog) {
@@ -27,9 +31,9 @@ const EditBlogForm = () => {
     );
   }
 
-const handleSubmitForm = (e) => {
+const handleSubmitForm = (e: React.FormEvent) => {
   e.preventDefault();
-  if (title && body) {
+  if (title && body && blogId) {
     dispatch(blogUpdated({ id: blogId, title, body }));
     navigate(`/blogs/${blogId}`);
   }
